@@ -1,3 +1,5 @@
+require('pry')
+
 class Triangle
   def initialize(side1, side2, side3)
     @side1 = side1
@@ -19,10 +21,16 @@ class Triangle
       return "Side3 is not a valid input"
     end
   end
-
+  def add(a, b)
+    a + b
+  end
   def triangle?
     inputs?
-    if (@side1 + @side2) <= @side3 || (@side1 + @side3) <= @side2 || (@side3 + @side2) <= @side1
+    if add(@side1, @side2) <= @side3
+      return "Not a triangle!"
+    elsif add(@side1, @side3) <= @side2
+      return "Not a triangle!"
+    elsif add(@side3, @side2) <= @side1
       return "Not a triangle!"
     else
       type?

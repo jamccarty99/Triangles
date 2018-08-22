@@ -25,13 +25,20 @@ class Triangle
     if (@side1 + @side2) <= @side3 || (@side1 + @side3) <= @side2 || (@side3 + @side2) <= @side1
       return "Not a triangle!"
     else
-      return "This is a triangle!"
+      type?
     end
   end
 
   def type?
     #equilateral: all sides are equal;
+    if (@side1 == @side2) && (@side1 == @side3)
+      return "This is an equilateral triangle!"
     #isosceles: exactly 2 sides are equal;
+    elsif (@side1 == @side2 && @side1 != @side3) || (@side3 == @side2 && @side3 != @side1) || (@side1 == @side3 && @side1 != @side2)
+      return "This is an isosceles triangle!"
     #scalene: no sides are equal.
+    else
+      return "This is a scalene triangle!"
+    end
   end
 end
